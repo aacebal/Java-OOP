@@ -21,6 +21,10 @@ public class BankAccount {
         this.phoneNumber = phoneNumber;
     }
 
+    public BankAccount(String customerName, String customerEmail, String phoneNumber) {
+        this(43214321, 0, customerName, customerEmail, phoneNumber);
+    }
+
     public double depositFunds(double fundsToDeposit) {
         this.accountBalance += fundsToDeposit;
 
