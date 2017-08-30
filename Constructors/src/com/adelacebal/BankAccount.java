@@ -7,6 +7,24 @@ public class BankAccount {
     private String customerEmail;
     private String phoneNumber;
 
+    public double depositFunds(double fundsToDeposit) {
+        this.accountBalance += fundsToDeposit;
+
+        System.out.println("The remaining balance is " + this.accountBalance);
+        return this.accountBalance;
+    }
+
+    public double withdrawFunds(double fundsToWithdraw) {
+        if (this.accountBalance >= fundsToWithdraw) {
+            this.accountBalance -= fundsToWithdraw;
+            System.out.println("The remaining balance is " + this.accountBalance);
+            return this.accountBalance;
+        }
+
+        System.out.println("Insufficient funds");
+        return this.accountBalance;
+    }
+
     public int getAccountNumber() {
         return accountNumber;
     }
@@ -45,23 +63,5 @@ public class BankAccount {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public double depositFunds(double fundsToDeposit) {
-        this.accountBalance =+ fundsToDeposit;
-
-        System.out.println("The remaining balance is " + this.accountBalance);
-        return this.accountBalance;
-    }
-
-    public double withdrawFunds(double fundsToWithdraw) {
-        if (this.accountBalance >= fundsToWithdraw) {
-            this.accountBalance =- fundsToWithdraw;
-            System.out.println("The remaining balance is " + this.accountBalance);
-            return this.accountBalance;
-        }
-
-        System.out.println("Insufficient funds");
-        return this.accountBalance;
     }
 }
