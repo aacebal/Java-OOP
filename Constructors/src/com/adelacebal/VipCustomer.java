@@ -7,12 +7,12 @@ public class VipCustomer {
     private String VipEmail;
 
     public VipCustomer() {
-        this("Name", 23, "email");
+        this("Defaul Name", 100, "defaultemail@email.com");
         System.out.println("Empty constructor");
     }
 
     public VipCustomer(String vipName, String vipEmail) {
-        this(vipEmail,10000, vipEmail);
+        this(vipName,1000000, vipEmail);
     }
 
     public VipCustomer(String vipName, int creditLimit, String vipEmail) {

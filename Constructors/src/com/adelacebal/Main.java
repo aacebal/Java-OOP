@@ -32,6 +32,20 @@ public class Main {
 //        System.out.println(timsAccount.getAccountNumber());
 
 
+        VipCustomer importantCustomer = new VipCustomer();
+        System.out.println(importantCustomer.getVipName());
+        System.out.println(importantCustomer.getVipEmail());
+        System.out.println(importantCustomer.getCreditLimit());
 
+        VipCustomer importantCustomer2 = new VipCustomer("Adel", "aacebal@mail.com");
+        System.out.println(importantCustomer2.getVipName());
+        System.out.println(importantCustomer2.getVipEmail());
+        System.out.println(importantCustomer2.getCreditLimit());
+
+
+        VipCustomer importantCustomer3 = new VipCustomer("Tim", 1000, "tim@mail.com");
+        System.out.println(importantCustomer3.getVipName());
+        System.out.println(importantCustomer3.getVipEmail());
+        System.out.println(importantCustomer3.getCreditLimit());
     }
 }
