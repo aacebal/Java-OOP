@@ -16,4 +16,15 @@ public class Dog extends Animal {
         this.teeth = teeth;
         this.coat = coat;
     }
+
+    private void chew() {
+        System.out.println("Dog chews");
+    }
+
+    @Override
+    public void eat() {
+        System.out.println("Dog eats");
+        chew();
+        super.eat();
+    }
 }
