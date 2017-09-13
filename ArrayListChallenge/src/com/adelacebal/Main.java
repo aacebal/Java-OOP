@@ -27,12 +27,44 @@ public class Main {
                 case 1:
                     mobilePhone.printContacts();
                     break;
+
+                case 2:
+                    addContact();
+                    break;
+
+                case 3:
+                    updateContact();
+                    break;
+
+                case 4:
+                    removeContact();
+                    break;
+
+                case 5:
+                    queryContact();
+                    break;
+
+                case 6:
+                    printActions();
+                    break;
             }
         }
     }
 
-    private static void startPhone() {
-        System.out.println("Starting phone... ");
+    private static void startPhone() { System.out.println("Starting phone... "); }
+
+    private static void addContact() {
+        System.out.println("Enter new contact name: ");
+        String name = scanner.nextLine();
+        System.out.println("Enter phone number: ");
+        String phoneNumber = scanner.nextLine();
+        Contact newContact = Contact.createContact(name, phoneNumber);
+        if (mobilePhone.addContact(newContact)) {
+            System.out.println("New contact added: " +
+                    name + " - " + phoneNumber);
+        } else {
+            System.out.println("Cannot add, " + name + " already on file");
+        }
     }
 
     private static void printActions() {
