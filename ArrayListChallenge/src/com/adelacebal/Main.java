@@ -1,8 +1,48 @@
 package com.adelacebal;
 
+import java.util.Scanner;
+
 public class Main {
+
+    private static Scanner scanner = new Scanner(System.in);
+    private static MobilePhone mobilePhone = new MobilePhone("555 444 3322");
 
     public static void main(String[] args) {
 
+        boolean quit = false;
+        startPhone();
+        printActions();
+
+        while(!quit) {
+            System.out.println("\nEnter action:");
+            int action = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (action) {
+                case 0:
+                    System.out.println("\nSutting down...");
+                    quit = true;
+                    break;
+
+                case 1:
+                    mobilePhone.printContacts();
+                    break;
+            }
+        }
+    }
+
+    private static void startPhone() {
+        System.out.println("Starting phone... ");
+    }
+
+    private static void printActions() {
+        System.out.println("\nAvailable actions: \npress");
+        System.out.println("0 - shutdown\n" +
+                           "1 - print contacts\n" +
+                           "3 - update an existing contact\n" +
+                           "4 - remove an existing contact\n" +
+                           "5 - query if an existing contact exists\n" +
+                           "6 - print a list of available actions");
+        System.out.println("Choose your actions");
     }
 }
