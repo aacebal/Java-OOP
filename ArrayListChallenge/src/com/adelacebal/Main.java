@@ -81,12 +81,41 @@ public class Main {
         String newNumber = scanner.nextLine();
         Contact newContact = Contact.createContact(newName, newNumber);
         if (mobilePhone.updateContact(existingContact, newContact)) {
-            System.out.println("Succesfully updated record");
+            System.out.println("Successfully updated record");
         } else {
             System.out.println("Error updating record");
         }
-
     }
+
+    private static void removeContact() {
+        System.out.println("Enter existing contact name: ");
+        String name = scanner.nextLine();
+        Contact existingContact = mobilePhone.queryContact(name);
+        if (existingContact == null) {
+            System.out.println("Contact not found.");
+            return;
+        }
+
+        if (mobilePhone.removeContact(existingContact)) {
+            System.out.println("Sucessfully deleted");
+        } else {
+            System.out.println("Error deleting record");
+        }
+    }
+
+    private static void queryContact() {
+        System.out.println("Enter existing contact name: ");
+        String name = scanner.nextLine();
+        Contact existingContact = mobilePhone.queryContact(name);
+        if (existingContact == null) {
+            System.out.println("Contact not found.");
+            return;
+        }
+
+        System.out.println("Name: " + existingContact.getName() + "\nPhone Number: " + existingContact.getPhoneNumber());
+    }
+
+
 
     private static void printActions() {
         System.out.println("\nAvailable actions: \npress");
