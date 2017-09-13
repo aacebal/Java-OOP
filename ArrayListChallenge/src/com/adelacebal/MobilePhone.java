@@ -32,18 +32,19 @@ public class MobilePhone {
         return true;
     }
 
-    public void removeContact(String nameToRemove) {
-        int indexToRemove = findContact(nameToRemove);
-        myContacts.remove(indexToRemove);
+    public boolean removeContact(Contact contact) {
+        int contactIndex = findContact(contact);
+        if (contactIndex < 0) {
+            System.out.println(contact.getName() + " was not found");
+            return false;
+        }
+        this.myContacts.remove(contactIndex);
+        System.out.println(contact.getName() + " was deleted");
+        return true;
     }
 
     private int findContact(Contact contact) {
-        int indexOfInfo = myContacts.indexOf(contact);
-
-        if (indexOfInfo >= 0) {
-            return indexOfInfo;
-        }
-        return -1;
+        return this.myContacts.indexOf(contact);
     }
 
     private int findContact(String contactName) {
@@ -54,6 +55,13 @@ public class MobilePhone {
             }
         }
         return -1;
+    }
+
+    public String queryContact(Contact contact) {
+        if (findContact(contact) >=0) {
+            return contact.getName();
+        }
+        return null;
     }
 
 }
