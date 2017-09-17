@@ -41,8 +41,12 @@ public class Demo {
             if (comparison == 0) {
                 System.out.println(newCity + " is already included as a destination");
             } else if (comparison > 0) {
-                
+                stringListIterator.previous();
+                stringListIterator.add(newCity);
+            } else if (comparison < 0) {
+
             }
         }
+        stringListIterator.add(newCity);
     }
 }
